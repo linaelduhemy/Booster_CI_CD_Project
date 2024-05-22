@@ -19,5 +19,8 @@ ENV DJANGO_SETTINGS_MODULE=simpleApp.settings
 # Expose the port the app runs on
 EXPOSE 8000
 
+# Run database migrations
+RUN python manage.py makemigrations && python manage.py migrate
+
 # Run the Django server
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
